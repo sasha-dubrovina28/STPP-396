@@ -1,11 +1,11 @@
 {
-  "name": "evpl_vite_template",
+  "name": "STPP-396",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/evpl_vite_template/",
+    "build": "vite build --base=/STPP-396",
     "preview": "vite preview",
     "build:preview": "vite build && vite preview"
   },
