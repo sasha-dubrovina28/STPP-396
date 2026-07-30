@@ -5,17 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page 3</title>
-    <link rel="stylesheet" crossorigin href="/STPP-396/assets/styles-IThzLR6D.css">
+    <link rel="stylesheet" crossorigin href="/STPP-396/assets/styles-CC5JRfae.css">
   </head>
   <body>
     <header class="site-header">
   <div class="container header-container">
-  
-    <nav class="desktop-nav" aria-label="Main navigation">
-<a class="brand" aria-label="Jolly Match 3">
-  Jolly Match 3
-</a>
+    <div class="logo-wraper">
+      <div class="logo-wraper-image">
+        <img
+          class="logo-image"
+          src="/STPP-396/assets/favicon-CmKU79UH.png"
+          alt="Logo"
+          loading="lazy"
+        />
+      </div>
+      <a class="brand" aria-label="Jolly Match 3"> Jolly Match 3 </a>
+    </div>
 
+    <nav class="desktop-nav" aria-label="Main navigation">
       <a href="./index.html">Home</a>
       <a href="./index.html#about">About</a>
       <a href="./index.html#how-to-play">How to Play</a>
@@ -23,16 +30,152 @@
       <a href="./index.html#reviews">Reviews</a>
       <a href="./index.html#gallery">Gallery</a>
       <a href="./index.html#contact">Contact</a>
+    </nav>
+    <a
+      class="header-play"
+      href="https://play.google.com/store/apps/details?id=com.jollyco.jollybattlematch3&hl=en&gl=us"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="header-play-text">Start to game</span>
+    </a>
+    <button
+      class="burger-btn"
+      type="button"
+      data-action="open-menu"
+      aria-label="Open menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
-        <a class="header-play" href="https://play.google.com/store/apps/details?id=com.jollyco.jollybattlematch3&hl=en&gl=us"
-          target="_blank" rel="noopener noreferrer">
-          <span class="header-play-text">Start to game</span>
+  <div
+    class="mobile-menu"
+    id="mobile-menu"
+    data-menu
+    data-visible="close"
+    aria-hidden="true"
+  >
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-top">
+        <a class="brand" href="./index.html#about" data-action="close-menu">
+          <span class="brand-strong">Jolly Match 3</span>
+        </a>
+        <button
+          class="menu-close"
+          type="button"
+          data-action="close-menu"
+          aria-label="Close menu"
+        >
+          x
+        </button>
+      </div>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a
+          class="mobile-nav__link"
+          href="./index.html#about"
+          data-action="close-menu"
+        >
+          About
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
         </a>
 
-    </nav>
-
-   
-   
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#how-to-play"
+          data-action="close-menu"
+        >
+          How to Play
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#characters"
+          data-action="close-menu"
+        >
+          Characters
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#reviews"
+          data-action="close-menu"
+          >Reviews
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#gallery"
+          data-action="close-menu"
+          >Gallery
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#contact"
+          data-action="close-menu"
+          >Contact
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#footer"
+          data-action="close-menu"
+          >Terms of Service
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="http://localhost:5179/terms.html"
+          data-action="close-menu"
+          >Privacy Policy
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </div>
   </div>
 </header>
 

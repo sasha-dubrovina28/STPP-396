@@ -2,21 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/STPP-396/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/STPP-396/assets/favicon-CmKU79UH.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Match Sweetly - Rebuild Joyfully</title>
-    <script type="module" crossorigin src="/STPP-396/assets/main-bvebg7B0.js"></script>
-    <link rel="stylesheet" crossorigin href="/STPP-396/assets/styles-IThzLR6D.css">
+    <script type="module" crossorigin src="/STPP-396/assets/vendor-BAS-R8IM.js"></script>
+    <script type="module" crossorigin src="/STPP-396/assets/main-BW4dGDFl.js"></script>
+    <link rel="stylesheet" crossorigin href="/STPP-396/assets/vendor-CtIR5pHR.css">
+    <link rel="stylesheet" crossorigin href="/STPP-396/assets/styles-CC5JRfae.css">
   </head>
   <body>
     <header class="site-header">
   <div class="container header-container">
-  
-    <nav class="desktop-nav" aria-label="Main navigation">
-<a class="brand" aria-label="Jolly Match 3">
-  Jolly Match 3
-</a>
+    <div class="logo-wraper">
+      <div class="logo-wraper-image">
+        <img
+          class="logo-image"
+          src="/STPP-396/assets/favicon-CmKU79UH.png"
+          alt="Logo"
+          loading="lazy"
+        />
+      </div>
+      <a class="brand" aria-label="Jolly Match 3"> Jolly Match 3 </a>
+    </div>
 
+    <nav class="desktop-nav" aria-label="Main navigation">
       <a href="./index.html">Home</a>
       <a href="./index.html#about">About</a>
       <a href="./index.html#how-to-play">How to Play</a>
@@ -24,26 +33,310 @@
       <a href="./index.html#reviews">Reviews</a>
       <a href="./index.html#gallery">Gallery</a>
       <a href="./index.html#contact">Contact</a>
+    </nav>
+    <a
+      class="header-play"
+      href="https://play.google.com/store/apps/details?id=com.jollyco.jollybattlematch3&hl=en&gl=us"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="header-play-text">Start to game</span>
+    </a>
+    <button
+      class="burger-btn"
+      type="button"
+      data-action="open-menu"
+      aria-label="Open menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
-        <a class="header-play" href="https://play.google.com/store/apps/details?id=com.jollyco.jollybattlematch3&hl=en&gl=us"
-          target="_blank" rel="noopener noreferrer">
-          <span class="header-play-text">Start to game</span>
+  <div
+    class="mobile-menu"
+    id="mobile-menu"
+    data-menu
+    data-visible="close"
+    aria-hidden="true"
+  >
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-top">
+        <a class="brand" href="./index.html#about" data-action="close-menu">
+          <span class="brand-strong">Jolly Match 3</span>
+        </a>
+        <button
+          class="menu-close"
+          type="button"
+          data-action="close-menu"
+          aria-label="Close menu"
+        >
+          x
+        </button>
+      </div>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a
+          class="mobile-nav__link"
+          href="./index.html#about"
+          data-action="close-menu"
+        >
+          About
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
         </a>
 
-    </nav>
-
-   
-   
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#how-to-play"
+          data-action="close-menu"
+        >
+          How to Play
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#characters"
+          data-action="close-menu"
+        >
+          Characters
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#reviews"
+          data-action="close-menu"
+          >Reviews
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#gallery"
+          data-action="close-menu"
+          >Gallery
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#contact"
+          data-action="close-menu"
+          >Contact
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="./index.html#footer"
+          data-action="close-menu"
+          >Terms of Service
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+        <span class="mobile-nav-dot" aria-hidden="true"></span>
+        <a
+          class="mobile-nav__link"
+          href="http://localhost:5179/terms.html"
+          data-action="close-menu"
+          >Privacy Policy
+          <span class="mobile-nav__icon">
+            <svg aria-hidden="true" width="20" height="20">
+              <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-arrow-right"></use>
+            </svg>
+          </span>
+        </a>
+      </nav>
+    </div>
   </div>
 </header>
 
 
     <main>
       <!-- Loads the specified .html file -->
-      
+      <section class="hero" id="hero">
+  <div class="hero-cont container">
+    <img class="hero-image" src="/STPP-396/assets/hero-ChSXrZk4.png" alt="Hero" loading="lazy" />
+    <img
+      class="hero-match"
+      src="/STPP-396/assets/title-CtZKHcNT.png"
+      alt="Match Sweetly.Rebuild Joyfully"
+      loading="lazy"
+    />
+    <h1 class="visually-hidden">Match Sweetly.Rebuild Joyfully</h1>
+    <p class="hero-text">
+      Restore a candy-coated world with puzzles, friends, and lovable helpers.
+    </p>
+    <a
+      class="hero-button"
+      href="https://play.google.com/store/apps/details?id=com.jollyco.jollybattlematch3&hl=en&gl=us"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg
+        class="store-icon"
+        width="34"
+        height="34"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <use href="/STPP-396/assets/sprite-CQRjaX5X.svg#icon-google-play"></use>
+      </svg>
+      PLAY ON<br />Google Play
+    </a>
+  </div>
+</section>
 
-      
-      
+      <section class="about" id="about">
+  <div class="about-cont container">
+    <h2 class="about-title">About the Game</h2>
+    <img class="about-image" src="/STPP-396/assets/about-DeXeNPSA.png" alt="about" loading="lazy" />
+    <p class="about-text">
+      A puzzle journey with heart and community Jolly Match 3 invites players
+      into a cozy world where a tornado has scattered cookies, gems, and candies
+      across once-beautiful locations. By solving match-3 levels, players earn
+      resources to restore these places while unlocking helper characters,
+      joining teams, and taking part in seasonal events.
+    </p>
+  </div>
+</section>
+
+      <section class="how-to-play" id="how-to-play">
+  <div class="how-cont container">
+    <h2 class="how-main-title">How to Play</h2>
+
+    <img
+      class="how-main-image"
+      src="/STPP-396/assets/htp-CSMCILOF.png"
+      alt="How to Play"
+      loading="lazy"
+    />
+    <div class="swiper how-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <h3 class="how-title">Join a Team</h3>
+          <div class="how-wraper">
+            <div class="how-wraper-image">
+              <img
+                class="how-image"
+                src="/STPP-396/assets/join-Cm6umquo.png"
+                alt="How to Play"
+                loading="lazy"
+              />
+            </div>
+            <p class="how-text">
+              Team up with players worldwide for shared events and rewards.
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <h3 class="how-title">Restore Storm-Damaged Locations</h3>
+          <div class="how-wraper">
+            <div class="how-wraper-image">
+              <img
+                class="how-image"
+                src="/STPP-396/assets/restore-06Jv1JjK.jpg"
+                alt="How to Play"
+                loading="lazy"
+              />
+            </div>
+            <p class="how-text">
+              Use earned resources to rebuild each area. Choose a Helper
+              Character
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <h3 class="how-title">Swap Candy Tiles</h3>
+          <div class="how-wraper">
+            <div class="how-wraper-image">
+              <img
+                class="how-image"
+                src="/STPP-396/assets/swap-_F10mlua.png"
+                alt="How to Play"
+                loading="lazy"
+              />
+            </div>
+            <p class="how-text">
+              Match cookies, gems, and treats to clear the board. Restore
+              Storm-Damaged Locations
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <h3 class="how-title">Choose a Helper Character</h3>
+          <div class="how-wraper">
+            <div class="how-wraper-image">
+              <img
+                class="how-image"
+                src="/STPP-396/assets/choose-Wb5mbG8S.png"
+                alt="How to Play"
+                loading="lazy"
+              />
+            </div>
+            <p class="how-text">
+              Pick a companion whose special skill supports your strategy.
+              Unlock Boosters
+            </p>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <h3 class="how-title">Unlock Boosters</h3>
+          <div class="how-wraper">
+            <div class="how-wraper-image">
+              <img
+                class="how-image"
+                src="/STPP-396/assets/unlock-rxwSfx3d.png"
+                alt="How to Play"
+                loading="lazy"
+              />
+            </div>
+            <p class="how-text">
+              Use disco-balls, rockets, and combo tools to clear tough levels.
+              Join a Team
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       
       
       
