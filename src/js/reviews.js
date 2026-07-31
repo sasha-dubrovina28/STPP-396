@@ -4,35 +4,36 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import sprite from "../img/sprite.svg";
 
 
 const reviews = [
   {
-    avatar: "./img/reviews/jason.jpg",
+    avatar: "../img/reviews/jason.jpg",
     name: "Jason P.",
     text: "Love picking my helper character before each run.",
     rating: "4.0"
   },
   {
-    avatar: "./img/reviews/Melissa.jpg",
+    avatar: "../img/reviews/Melissa.jpg",
     name: "Melissa H.",
     text: "Sweet visuals and the boosters feel really powerful.",
     rating: "4.0"
   },
   {
-    avatar: "./img/reviews/puzzle.jpg",
+    avatar: "../img/reviews/puzzle.jpg",
     name: "PuzzleTeamCaptain",
     text: "Joining a team completely changed how I play.",
     rating: "5.0"
   },
   {
-    avatar: "./img/reviews/candy.jpg",
+    avatar: "../img/reviews/candy.jpg",
     name: "CandyCrusherPro",
     text: "Team events make this way more fun than typical match-3s.",
     rating: "5.0"
   },
   {
-    avatar: "./img/reviews/sweet.jpg",
+    avatar: "../img/reviews/sweet.jpg",
     name: "SweetTilesFan",
     text: "Restoring the town after the storm is so satisfying.",
     rating: "5.0"
@@ -46,7 +47,9 @@ function renderStars(rating) {
 
   for (let i = 0; i < 5; i++) {
     const emptyClass = i < full ? '' : ' is-empty';
-    stars += `<svg class="star-icon${emptyClass}"><use href="./img/sprite.svg#icon-star"></use></svg>`;
+    stars += `<svg class="star-icon${emptyClass}">
+      <use href="${sprite}#icon-star"></use>
+    </svg>`;
   }
 
   return stars;
