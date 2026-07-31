@@ -1,0 +1,149 @@
+.gallery {
+    overflow: hidden;
+    background: #F6F6FF;
+}
+
+.gallery-title {
+    color: #6E16DE;
+    font-size: 44px;
+    width: 327px;
+    height: 62px;
+    text-align: center;
+    margin: 0 auto 48px;
+}
+
+.gallery .gallery-swiper {
+    padding-top: 84px;
+    padding-bottom: 65px;
+    overflow: visible;
+}
+
+.gallery .swiper {
+    overflow: visible;
+}
+
+.gallery .swiper-wrapper {
+    align-items: center;
+}
+
+.gallery .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: all 0.3s ease;
+}
+
+.gallery .swiper-slide img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 249 / 541;
+    display: block;
+    border-radius: 24px;
+    object-fit: cover;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+.gallery .swiper-slide-active {
+    transform: translateY(-54px);
+}
+
+
+.gallery-controls {
+    width: 327px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.gallery .swiper-pagination {
+    width: 100%;
+    position: absolute !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.gallery .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 8px !important;
+    margin: 0 !important;
+    border-radius: 20px !important;
+    background: #C1C0FE !important;
+    opacity: 1 !important;
+}
+
+
+.gallery .swiper-pagination-bullet-active {
+    width: 24px !important;
+    height: 8px !important;
+    border-radius: 20px !important;
+    background: #4F0CC6 !important;
+}
+
+
+/* =========================
+   DESKTOP 1440+
+========================= */
+@media screen and (min-width: 1440px) {
+
+    .gallery .gallery-swiper {
+        padding-top: 121px;
+        max-width: 1440px;
+            /* pick whatever matches your design's intended width */
+            margin: 0 auto;
+            overflow: hidden;
+    }
+.gallery .swiper-wrapper {
+    overflow: visible;
+    /* keep this so the translateY scale-up on active slide isn't clipped vertically */
+}
+    /* крайні */
+    .gallery .swiper-slide {
+        width: 229px;
+        margin-right: 24px;
+    }
+
+    .gallery .swiper-slide img {
+        width: 229px;
+        height: 490px;
+    }
+
+
+    /* сусідні */
+    .gallery .swiper-slide-prev,
+    .gallery .swiper-slide-next {
+        width: 302px;
+    }
+
+    .gallery .swiper-slide-prev img,
+    .gallery .swiper-slide-next img {
+        width: 302px;
+        height: 650px;
+    }
+
+
+    /* центр */
+    .gallery .swiper-slide-active {
+        width: 374px;
+        transform: translateY(-81px);
+    }
+
+    .gallery .swiper-slide-active img {
+        width: 374px;
+        height: 812px;
+    }
+
+
+        .gallery .swiper-slide-prev,
+        .gallery .swiper-slide-active {
+            margin-right: 42px;
+        }
+}
