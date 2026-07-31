@@ -4,36 +4,43 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
 import sprite from "../img/sprite.svg";
+
+import jason from "../img/reviews/jason.jpg";
+import Melissa from "../img/reviews/Melissa.jpg";
+import puzzle from "../img/reviews/puzzle.jpg";
+import candy from "../img/reviews/candy.jpg";
+import sweet from "../img/reviews/sweet.jpg";
 
 
 const reviews = [
   {
-    avatar: "../img/reviews/jason.jpg",
+    avatar: jason,
     name: "Jason P.",
     text: "Love picking my helper character before each run.",
     rating: "4.0"
   },
   {
-    avatar: "../img/reviews/Melissa.jpg",
+    avatar: Melissa,
     name: "Melissa H.",
     text: "Sweet visuals and the boosters feel really powerful.",
     rating: "4.0"
   },
   {
-    avatar: "../img/reviews/puzzle.jpg",
+    avatar: puzzle,
     name: "PuzzleTeamCaptain",
     text: "Joining a team completely changed how I play.",
     rating: "5.0"
   },
   {
-    avatar: "../img/reviews/candy.jpg",
+    avatar: candy,
     name: "CandyCrusherPro",
     text: "Team events make this way more fun than typical match-3s.",
     rating: "5.0"
   },
   {
-    avatar: "../img/reviews/sweet.jpg",
+    avatar: sweet,
     name: "SweetTilesFan",
     text: "Restoring the town after the storm is so satisfying.",
     rating: "5.0"
@@ -47,15 +54,20 @@ function renderStars(rating) {
 
   for (let i = 0; i < 5; i++) {
     const emptyClass = i < full ? '' : ' is-empty';
-    stars += `<svg class="star-icon${emptyClass}">
-      <use href="${sprite}#icon-star"></use>
-    </svg>`;
+
+    stars += `
+      <svg class="star-icon${emptyClass}">
+        <use href="${sprite}#icon-star"></use>
+      </svg>
+    `;
   }
 
   return stars;
 }
 
+
 const reviewsList = document.querySelector('.reviews-list');
+
 
 reviewsList.innerHTML = reviews.map(({ avatar, name, text, rating }) => `
   <li class="swiper-slide reviews-item">
@@ -104,7 +116,7 @@ const swiper = new Swiper('.reviews-swiper', {
   breakpoints: {
 
     1440: {
-      slidesPerView: 3,
+      slidesPerView: 'auto',
       spaceBetween: 102,
       centeredSlides: false
     },
