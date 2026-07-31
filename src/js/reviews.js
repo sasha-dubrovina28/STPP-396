@@ -40,6 +40,18 @@ const reviews = [
 ];
 
 
+function renderStars(rating) {
+  const full = Math.round(Number(rating));
+  let stars = '';
+
+  for (let i = 0; i < 5; i++) {
+    const emptyClass = i < full ? '' : ' is-empty';
+    stars += `<svg class="star-icon${emptyClass}"><use href="./img/sprite.svg#icon-star"></use></svg>`;
+  }
+
+  return stars;
+}
+
 const reviewsList = document.querySelector('.reviews-list');
 
 reviewsList.innerHTML = reviews.map(({ avatar, name, text, rating }) => `
@@ -61,7 +73,7 @@ reviewsList.innerHTML = reviews.map(({ avatar, name, text, rating }) => `
 
     <div class="reviews-rating">
       <span class="reviews-score">${rating}</span>
-      <span class="reviews-stars">★★★★★</span>
+      <span class="reviews-stars">${renderStars(rating)}</span>
     </div>
 
   </li>
@@ -90,9 +102,8 @@ const swiper = new Swiper('.reviews-swiper', {
 
     1440: {
       slidesPerView: 3,
-        centeredSlides: true,
-
       spaceBetween: 102,
+      centeredSlides: false
     },
 
   },
