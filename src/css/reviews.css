@@ -30,7 +30,7 @@
 .reviews-text {
     font-size: 20px;
     width: 254px;
-    height: 84px;
+    min-height: 84px;
     font-weight: 500;
     line-height: 28px;
     text-align: center;
@@ -63,7 +63,7 @@
 }
 .reviews-item {
     width: 302px;
-    height: 287px;
+    min-height: 287px;
     box-sizing: border-box;
     padding: 24px;
     border-radius: 35px;
@@ -212,10 +212,10 @@
         height: 44px;
         margin: 100px auto 80px;
     }
-    .swiper-slide-active .reviews-item {
+    /* .swiper-slide-active .reviews-item {
         height: 287px;
         transform: translateY(-18px);
-    }
+    } */
     .reviews-title {
         margin-bottom: 85px;
     }
