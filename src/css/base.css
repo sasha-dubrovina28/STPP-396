@@ -1,20 +1,38 @@
 :root {
-  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
+    --electric-violet-50: #f6f6ff;
+    --electric-violet-100: #ececff;
+    --electric-violet-200: #dbdbfe;
+    --electric-violet-300: #c1c0fe;
+    --electric-violet-400: #9b97fd;
+    --electric-violet-500: #8171fc;
+    --electric-violet-600: #6c41fb;
+    --electric-violet-700: #5d10e8;
+    --electric-violet-800: #4f0cc6;
+    --electric-violet-900: #4409ab;
+    --electric-violet-950: #28036a;
+    --yellow-sea-50: #fff7ec;
+    --yellow-sea-100: #ffecd5;
+    --yellow-sea-200: #ffdcaf;
+    --yellow-sea-300: #ffc576;
+    --yellow-sea-400: #fa0;
+    --yellow-sea-500: #eb9a00;
+    --yellow-sea-600: #c97e00;
+    --yellow-sea-700: #a15d00;
+    --yellow-sea-800: #814600;
+    --yellow-sea-900: #6b3800;
+    --yellow-sea-950: #3f1f00;
+    --color-body-text: #04041d;
+    --color-background-blur: rgba(255, 255, 255, 0.7);
+    --color--state-disabled: #787878;
+    --color-text: #fff;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+      --font-family: "Nunito", sans-serif;
+        --second-family: "Inter", sans-serif;
+        --third-family: "Sniglet", sans-serif;
+        --font3: "Product Sans", sans-serif;
+  }
+
 
 body {
   display: flex;
@@ -22,7 +40,7 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+ 
 }
 
 main {
