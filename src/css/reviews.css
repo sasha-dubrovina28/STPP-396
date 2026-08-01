@@ -26,7 +26,7 @@
     font-size: 44px;
     line-height: 62px;
     font-weight: 400;
-    font-family: var(--font-family);
+    font-family: var(--title-font-family);
     color: #6E16DE;
 }
 
