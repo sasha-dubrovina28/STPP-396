@@ -5,27 +5,31 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+import sprite from "../img/sprite.svg";
+
 
 function renderStars(rating) {
+
   const fullStars = Math.round(Number(rating));
+
   let stars = "";
+
   for (let i = 0; i < 5; i++) {
+
     const emptyClass = i >= fullStars ? "is-empty" : "";
 
     stars += `
-      <svg class="star-icon ${emptyClass}" width="14" height="14">
-        <use href="./img/sprite.svg#icon-star"></use>
+      <svg class="star-icon ${emptyClass}" width="17" height="17">
+        <use href="${sprite}#icon-star"></use>
       </svg>
     `;
-
   }
   return stars;
 }
 document.querySelectorAll(".reviews-stars").forEach((item) => {
-  item.innerHTML = renderStars(
-    item.dataset.rating
-  );
+  item.innerHTML = renderStars(item.dataset.rating);
 });
+
 
 new Swiper(".reviews-swiper", {
   modules: [
