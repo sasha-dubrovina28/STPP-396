@@ -1,0 +1,167 @@
+.gallery {
+    overflow: hidden;
+    background: #F6F6FF;
+}
+
+.gallery .container-gallery {
+    padding: 70px 0 30px;
+}
+
+.gallery-title {
+    color: #6E16DE;
+    font-size: 44px;
+    width: 327px;
+    height: 62px;
+    text-align: center;
+    margin: 0 auto 48px;
+}
+
+.gallery .gallery-swiper {
+    padding-top: 30px;
+    padding-bottom: 65px;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.gallery .swiper {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.gallery .swiper-wrapper {
+    align-items: center;
+}
+
+.gallery .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: all 0.3s ease;
+    width: 201px;
+}
+
+.gallery .swiper-slide img {
+    width: 201px;
+    height: 433px;
+    display: block;
+    border-radius: 24px;
+    object-fit: cover;
+}
+
+.gallery .swiper-slide-active {
+    width: 249px;
+    transform: translateY(-54px);
+}
+
+.gallery .swiper-slide-active img {
+    width: 249px;
+    height: 541px;
+}
+
+
+.gallery-controls {
+    position: relative;
+    width: 327px;
+    height: 44px;
+    margin: 65px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.gallery-controls .swiper-button-prev,
+.gallery-controls .swiper-button-next {
+    margin: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    cursor: pointer;
+}
+
+.gallery-controls .swiper-button-prev::after,
+.gallery-controls .swiper-button-next::after {
+    content: none;
+}
+
+
+.gallery .swiper-pagination {
+    position: static !important;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.gallery .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 8px !important;
+    margin: 0 !important;
+    border-radius: 20px !important;
+    background: #C1C0FE !important;
+    opacity: 1 !important;
+}
+
+
+.gallery .swiper-pagination-bullet-active {
+    width: 24px !important;
+    height: 8px !important;
+    border-radius: 20px !important;
+    background: #4F0CC6 !important;
+}
+
+@media screen and (min-width: 1440px) {
+
+    .gallery .gallery-swiper {
+        padding-top: 121px;
+        max-width: 1440px;
+        /* pick whatever matches your design's intended width */
+        margin: 0 auto;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
+    .gallery .swiper-wrapper {
+        overflow-x: hidden;
+        overflow-y: visible;
+        /* clip peek cards at the 1440 boundary, but keep vertical visible so the translateY scale-up on active slide isn't clipped */
+    }
+
+    .gallery .swiper-slide {
+        width: 229px;
+        margin-right: 24px;
+    }
+
+    .gallery .swiper-slide img {
+        width: 229px;
+        height: 490px;
+    }
+
+    .gallery .swiper-slide-prev,
+    .gallery .swiper-slide-next {
+        width: 302px;
+    }
+
+    .gallery .swiper-slide-prev img,
+    .gallery .swiper-slide-next img {
+        width: 302px;
+        height: 650px;
+    }
+
+    .gallery .swiper-slide-active {
+        width: 374px;
+        transform: translateY(-81px);
+    }
+
+    .gallery .swiper-slide-active img {
+        width: 374px;
+        height: 812px;
+    }
+
+    .gallery .swiper-slide-prev,
+    .gallery .swiper-slide-active {
+        margin-right: 42px;
+    }
+}
