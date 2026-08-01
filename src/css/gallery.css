@@ -1,90 +1,144 @@
 .gallery {
+    position: relative;
+
+    width: 100%;
     overflow: hidden;
-    background: #F6F6FF;
+
+    background-color: #f6f6ff;
+}
+.gallery,
+.gallery * {
+    box-sizing: border-box;
 }
 
 .gallery .container-gallery {
-    padding: 70px 0 30px;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 8px 0 30px;
 }
-
 .gallery-title {
-    color: #6E16DE;
-    font-size: 44px;
-    width: 327px;
-    height: 62px;
-    text-align: center;
-    margin: 0 auto 48px;
-}
+    width: 100%;
+    height: auto;
 
+    margin: 0 auto 20px;
+    padding: 0 16px;
+
+    color: #6e16de;
+
+    font-size: 44px;
+    font-weight: 400;
+    line-height: 1.15;
+    text-align: center;
+}
 .gallery .gallery-swiper {
-    padding-top: 30px;
-    padding-bottom: 65px;
-    overflow-x: hidden;
-    overflow-y: visible;
+    position: relative;
+    width: min(100%, 387px);
+    margin: 0 auto;
+    padding: 0;
+    overflow: visible !important;
 }
 
 .gallery .swiper {
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible !important;
 }
 
 .gallery .swiper-wrapper {
     align-items: center;
+    overflow: visible !important;
 }
 
 .gallery .swiper-slide {
+    height: 541px;
     display: flex;
+    flex-shrink: 0;
     justify-content: center;
-    align-items: flex-end;
-    transition: all 0.3s ease;
-    width: 201px;
+    align-items: center;
+    overflow: visible;
+    transition: none;
 }
-
 .gallery .swiper-slide img {
-    width: 201px;
-    height: 433px;
+    width: calc(100% * 201 / 249);
+    height: auto;
+    aspect-ratio: 201 / 433;
+    max-width: 201px;
     display: block;
-    border-radius: 24px;
-    object-fit: cover;
-}
+    flex-shrink: 0;
 
+    object-fit: cover;
+    border-radius: 24px;
+    transition:
+    width 300ms ease,
+    height 300ms ease;
+}
 .gallery .swiper-slide-active {
-    width: 249px;
-    transform: translateY(-54px);
+    z-index: 3;
+    justify-content: center;
 }
 
 .gallery .swiper-slide-active img {
-    width: 249px;
-    height: 541px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 249 / 541;
+    max-width: 249px;
 }
 
+.gallery .swiper-slide-prev,
+.gallery .swiper-slide-next {
+    z-index: 2;
+}
+.gallery .swiper-slide-prev {
+    justify-content: flex-end;
+}
 
+.gallery .swiper-slide-next {
+    justify-content: flex-start;
+}
+
+.gallery .swiper-slide-active {
+    z-index: 3;
+    justify-content: center;
+}
 .gallery-controls {
     position: relative;
-    width: 327px;
-    height: 44px;
-    margin: 65px auto;
+    z-index: 10;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    min-height: 44px;
+    margin: 65px auto 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 75.5px;
 }
 
 .gallery-controls .swiper-button-prev,
 .gallery-controls .swiper-button-next {
-    margin: 0;
+    position: static;
     width: 44px;
     height: 44px;
+    margin: 0;
     display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    color: #6e16de;
     cursor: pointer;
+    transform: none;
 }
-
 .gallery-controls .swiper-button-prev::after,
 .gallery-controls .swiper-button-next::after {
     content: none;
 }
 
-
+.gallery-controls .swiper-button-prev img,
+.gallery-controls .swiper-button-next img,
+.gallery-controls .swiper-button-prev svg,
+.gallery-controls .swiper-button-next svg {
+    width: 44px;
+    height: 44px;
+    display: block;
+}
 .gallery .swiper-pagination {
     position: static !important;
     width: auto;
@@ -93,75 +147,136 @@
     align-items: center;
     gap: 4px;
 }
-
-
 .gallery .swiper-pagination-bullet {
     width: 12px !important;
     height: 8px !important;
     margin: 0 !important;
     border-radius: 20px !important;
-    background: #C1C0FE !important;
+    background-color: #c1c0fe !important;
     opacity: 1 !important;
+    transition: 200ms ease,
+    background-color 200ms ease;
 }
-
 
 .gallery .swiper-pagination-bullet-active {
     width: 24px !important;
     height: 8px !important;
     border-radius: 20px !important;
-    background: #4F0CC6 !important;
+    background-color: #4f0cc6 !important;
 }
 
 @media screen and (min-width: 1440px) {
-
+    .gallery .container-gallery {
+        width: 100%;
+        max-width: none;
+        padding-top: 8px;
+        padding-bottom: 30px;
+    }
+    .gallery-title {
+        margin-bottom: 24px;
+        font-size: 44px;
+    }
     .gallery .gallery-swiper {
-        padding-top: 121px;
-        max-width: 1440px;
-        /* pick whatever matches your design's intended width */
-        margin: 0 auto;
-        overflow-x: hidden;
-        overflow-y: visible;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        overflow: visible !important;
     }
 
-    .gallery .swiper-wrapper {
-        overflow-x: hidden;
-        overflow-y: visible;
-        /* clip peek cards at the 1440 boundary, but keep vertical visible so the translateY scale-up on active slide isn't clipped */
+    .gallery .gallery-swiper.is-desktop .swiper-wrapper {
+        position: relative;
+        left: 50%;
+        width: 1568px !important;
+        height: 812px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0;
+        overflow: visible !important;
+        transform: translateX(-50%) !important;
+        transition: none !important;
+    }
+    .gallery .gallery-swiper.is-desktop .swiper-slide {
+        position: relative;
+
+        display: none !important;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: 0 !important;
+        height: 812px;
+        margin: 0 !important;
+        overflow: visible;
+        transform: none !important;
+        transition: none;
     }
 
-    .gallery .swiper-slide {
-        width: 229px;
-        margin-right: 24px;
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position] {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
     }
-
-    .gallery .swiper-slide img {
+    .gallery .gallery-swiper.is-desktop .gallery-slide-hidden {
+        display: none !important;
+    }
+    .gallery .gallery-swiper.is-desktop .swiper-slide img {
+        max-width: none;
+        display: block;
+        flex-shrink: 0;
+        object-fit: cover;
+        border-radius: 24px;
+        transition: width 300ms ease, height 300ms ease;
+    }
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="-2"] {
+        order: 1;
+        width: 229px !important;
+        margin-right: 24px !important;
+    }
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="-2"] img {
         width: 229px;
         height: 490px;
     }
-
-    .gallery .swiper-slide-prev,
-    .gallery .swiper-slide-next {
-        width: 302px;
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="-1"] {
+        order: 2;
+        width: 302px !important;
+        margin-right: 42px !important;
     }
-
-    .gallery .swiper-slide-prev img,
-    .gallery .swiper-slide-next img {
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="-1"] img {
         width: 302px;
         height: 650px;
     }
-
-    .gallery .swiper-slide-active {
-        width: 374px;
-        transform: translateY(-81px);
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="0"] {
+        order: 3;
+        z-index: 3;
+        width: 374px !important;
+        margin-right: 42px !important;
     }
-
-    .gallery .swiper-slide-active img {
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="0"] img {
         width: 374px;
         height: 812px;
     }
-
-    .gallery .swiper-slide-prev,
-    .gallery .swiper-slide-active {
-        margin-right: 42px;
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="1"] {
+        order: 4;
+        width: 302px !important;
+        margin-right: 24px !important;
+    }
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="1"] img {
+        width: 302px;
+        height: 650px;
+    }
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="2"] {
+        order: 5;
+        width: 229px !important;
+        margin-right: 0 !important;
+    }
+    .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position="2"] img {
+        width: 229px;
+        height: 490px;
+    }
+    .gallery-controls {
+        width: max-content;
+        max-width: none;
+        margin: 35px auto 0;
+        gap: 18px;
     }
 }
