@@ -1,62 +1,327 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
+const gallery = document.querySelector('.gallery');
 
-const swiper = new Swiper('.gallery-swiper', {
+if (gallery) {
+  const swiperElement = gallery.querySelector('.gallery-swiper');
+  const wrapper = swiperElement?.querySelector('.swiper-wrapper');
 
-  modules: [
-    Navigation,
-    Pagination,
-    Autoplay
-  ],
+  const slides = wrapper
+    ? Array.from(wrapper.querySelectorAll('.swiper-slide'))
+    : [];
 
-  loop: true,
+  const previousButton = gallery.querySelector('.swiper-button-prev');
+  const nextButton = gallery.querySelector('.swiper-button-next');
+  const paginationElement = gallery.querySelector('.swiper-pagination');
 
-  centeredSlides: true,
+  const desktopMedia = window.matchMedia('(min-width: 1440px)');
+  const slidesCount = slides.length;
 
-  slidesPerView: 1.5,
+  let mobileSwiper = null;
+  let desktopAutoplay = null;
+  let currentMode = null;
 
-  spaceBetween: 26,
-  
+  let activeIndex = Number(
+    swiperElement?.dataset.initialSlide ??
+      Math.floor(slidesCount / 2)
+  );
 
-  navigation: {
-    nextEl: '.gallery .swiper-button-next',
-    prevEl: '.gallery .swiper-button-prev',
-  },
+  const normalizeIndex = index => {
+    return ((index % slidesCount) + slidesCount) % slidesCount;
+  };
 
+  activeIndex = normalizeIndex(activeIndex);
 
-  pagination: {
-    el: '.gallery .swiper-pagination',
-    clickable: true,
-  },
+  /* =========================
+     PAGINATION
+  ========================= */
 
+  const bullets = [];
 
-  autoplay: {
-    delay: 3000,
-  },
+  if (paginationElement) {
+    paginationElement.innerHTML = '';
 
+    slides.forEach((_, index) => {
+      const bullet = document.createElement('button');
 
-  breakpoints: {
-    1440: {
-      slidesPerView: 'auto',
-      centeredSlides: true,
-      spaceBetween: 0,
-      loop: true,
-      loopAdditionalSlides: 10,
-    }
+      bullet.type = 'button';
+      bullet.className = 'swiper-pagination-bullet';
+      bullet.setAttribute(
+        'aria-label',
+        `Перейти до слайда ${index + 1}`
+      );
+
+      bullet.addEventListener('click', () => {
+        if (desktopMedia.matches) {
+          activeIndex = index;
+
+          renderDesktopGallery();
+          restartDesktopAutoplay();
+
+          return;
+        }
+
+        mobileSwiper?.slideToLoop(index);
+      });
+
+      paginationElement.append(bullet);
+      bullets.push(bullet);
+    });
   }
-});
 
-swiper.on('breakpoint', () => {
-  swiper.loopDestroy();
-  swiper.loopCreate();
-  swiper.slideToLoop(swiper.realIndex, 0, false);
-  swiper.update();
-});
-swiper.on('slideChangeTransitionEnd', () => {
-  swiper.update();
-});
+  const updatePagination = () => {
+    bullets.forEach((bullet, index) => {
+      const isActive = index === activeIndex;
+
+      bullet.classList.toggle(
+        'swiper-pagination-bullet-active',
+        isActive
+      );
+
+      if (isActive) {
+        bullet.setAttribute('aria-current', 'true');
+      } else {
+        bullet.removeAttribute('aria-current');
+      }
+    });
+  };
+
+  /* =========================
+     DESKTOP
+  ========================= */
+
+  const getCircularPosition = slideIndex => {
+    let position = slideIndex - activeIndex;
+
+    const half = slidesCount / 2;
+
+    if (position > half) {
+      position -= slidesCount;
+    }
+
+    if (position < -half) {
+      position += slidesCount;
+    }
+
+    return position;
+  };
+
+  const renderDesktopGallery = () => {
+    activeIndex = normalizeIndex(activeIndex);
+
+    slides.forEach((slide, slideIndex) => {
+      const position = getCircularPosition(slideIndex);
+      const isVisible = Math.abs(position) <= 2;
+
+      slide.removeAttribute('data-gallery-position');
+
+      slide.classList.remove(
+        'swiper-slide-active',
+        'swiper-slide-prev',
+        'swiper-slide-next',
+        'gallery-slide-hidden'
+      );
+
+      /*
+       * На desktop одночасно показуємо тільки:
+       * -2, -1, 0, 1, 2.
+       *
+       * Усі інші картки приховуються.
+       */
+      if (!isVisible) {
+        slide.classList.add('gallery-slide-hidden');
+        slide.setAttribute('aria-hidden', 'true');
+
+        return;
+      }
+
+      slide.dataset.galleryPosition = String(position);
+      slide.removeAttribute('aria-hidden');
+
+      if (position === 0) {
+        slide.classList.add('swiper-slide-active');
+      }
+
+      if (position === -1) {
+        slide.classList.add('swiper-slide-prev');
+      }
+
+      if (position === 1) {
+        slide.classList.add('swiper-slide-next');
+      }
+    });
+
+    updatePagination();
+  };
+
+  const stopDesktopAutoplay = () => {
+    if (!desktopAutoplay) {
+      return;
+    }
+
+    window.clearInterval(desktopAutoplay);
+    desktopAutoplay = null;
+  };
+
+  const startDesktopAutoplay = () => {
+    stopDesktopAutoplay();
+
+    desktopAutoplay = window.setInterval(() => {
+      activeIndex = normalizeIndex(activeIndex + 1);
+      renderDesktopGallery();
+    }, 3000);
+  };
+
+  const restartDesktopAutoplay = () => {
+    startDesktopAutoplay();
+  };
+
+  const destroyMobileSwiper = () => {
+    if (!mobileSwiper) {
+      return;
+    }
+
+    activeIndex = normalizeIndex(mobileSwiper.realIndex);
+
+    mobileSwiper.destroy(true, true);
+    mobileSwiper = null;
+  };
+
+  const initializeDesktop = () => {
+    destroyMobileSwiper();
+
+    swiperElement.classList.add('is-desktop');
+
+    slides.forEach(slide => {
+      slide.removeAttribute('style');
+    });
+
+    renderDesktopGallery();
+    startDesktopAutoplay();
+  };
+
+  /* =========================
+     MOBILE
+  ========================= */
+
+  const clearDesktopState = () => {
+    stopDesktopAutoplay();
+
+    swiperElement.classList.remove('is-desktop');
+
+    slides.forEach(slide => {
+      slide.removeAttribute('data-gallery-position');
+      slide.removeAttribute('aria-hidden');
+      slide.removeAttribute('style');
+
+      slide.classList.remove(
+        'gallery-slide-hidden',
+        'swiper-slide-active',
+        'swiper-slide-prev',
+        'swiper-slide-next'
+      );
+    });
+  };
+
+  const initializeMobile = () => {
+    clearDesktopState();
+
+    mobileSwiper = new Swiper(swiperElement, {
+      modules: [Autoplay],
+
+      initialSlide: activeIndex,
+
+      loop: true,
+      centeredSlides: true,
+
+      slidesPerView: 1.5,
+      spaceBetween: 26,
+
+      speed: 500,
+
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+
+      on: {
+        init(instance) {
+          activeIndex = normalizeIndex(instance.realIndex);
+          updatePagination();
+        },
+
+        realIndexChange(instance) {
+          activeIndex = normalizeIndex(instance.realIndex);
+          updatePagination();
+        },
+      },
+    });
+  };
+
+  /* =========================
+     CONTROLS
+  ========================= */
+
+  previousButton?.addEventListener('click', () => {
+    if (desktopMedia.matches) {
+      activeIndex = normalizeIndex(activeIndex - 1);
+
+      renderDesktopGallery();
+      restartDesktopAutoplay();
+
+      return;
+    }
+
+    mobileSwiper?.slidePrev();
+  });
+
+  nextButton?.addEventListener('click', () => {
+    if (desktopMedia.matches) {
+      activeIndex = normalizeIndex(activeIndex + 1);
+
+      renderDesktopGallery();
+      restartDesktopAutoplay();
+
+      return;
+    }
+
+    mobileSwiper?.slideNext();
+  });
+
+  /* =========================
+     RESPONSIVE
+  ========================= */
+
+  const initializeGallery = () => {
+    const newMode = desktopMedia.matches
+      ? 'desktop'
+      : 'mobile';
+
+    if (newMode === currentMode) {
+      return;
+    }
+
+    currentMode = newMode;
+
+    if (newMode === 'desktop') {
+      initializeDesktop();
+    } else {
+      initializeMobile();
+    }
+  };
+
+  if (typeof desktopMedia.addEventListener === 'function') {
+    desktopMedia.addEventListener(
+      'change',
+      initializeGallery
+    );
+  } else {
+    desktopMedia.addListener(initializeGallery);
+  }
+
+  initializeGallery();
+}
