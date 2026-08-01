@@ -35,7 +35,7 @@
     line-height: 28px;
     text-align: center;
     margin: 0 auto 12px;
-    color: #242424;
+    color: #04041D;
 }
 .reviews-avatar {
     width: 74px;
@@ -102,7 +102,7 @@
     width: 14px;
     height: 14px;
     flex-shrink: 0;
-    fill: currentColor;
+    color: #FFAA00;
 }
 .reviews-stars .star-icon.is-empty {
     color: #DBDBFE;
@@ -192,7 +192,7 @@
     z-index: 1;
 }
 .reviews-swiper .swiper-slide {
-    height: 269px;
+    height: 287px;
     width: 302px;
 }
 @media screen and (min-width: 1440px) {
@@ -205,7 +205,7 @@
    }
     .reviews-item {
         width: 302px;
-        height: 269px;
+        height: 287px;
     }
     .reviews-controls {
         width: 242px;
