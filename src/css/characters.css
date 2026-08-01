@@ -8,6 +8,7 @@
     text-align: center;
     color: #5d10e8;
     font-size: 44px;
+    font-family: var(--font-family);
     line-height: 140%;
 }
 
