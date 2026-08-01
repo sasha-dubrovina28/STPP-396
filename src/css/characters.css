@@ -8,7 +8,7 @@
     text-align: center;
     color: #5d10e8;
     font-size: 44px;
-    font-family: var(--font-family);
+    font-family: var(--title-font-family);
     line-height: 140%;
 }
 
@@ -60,9 +60,8 @@
     color: #5d10e8;
     font-size: 24px;
     line-height: 1.2;
-    font-family: Nunito;
+    font-family: var(--font-family);
 }
-
 .characters-card-text {
     margin: 0;
     max-width: none;
