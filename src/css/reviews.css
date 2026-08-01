@@ -26,6 +26,7 @@
     font-size: 44px;
     line-height: 62px;
     font-weight: 400;
+    font-family: var(--font-family);
     color: #6E16DE;
 }
 
@@ -37,6 +38,7 @@
     line-height: 28px;
     text-align: center;
     margin: 0 auto 12px;
+    font-family: var(--font-family);
     color: #04041D;
 }
 
@@ -57,6 +59,7 @@
     text-align: center;
     margin: 0 auto 12px;
     font-weight: 500;
+    font-family: var(--font-family);
     line-height: 22px;
 }
 
@@ -98,6 +101,7 @@
     width: 23px;
     height: 22px;
     font-size: 16px;
+    font-family: var(--font-family);
 }
 
 .reviews-stars {
