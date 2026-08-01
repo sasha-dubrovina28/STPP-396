@@ -3,6 +3,10 @@
     background: #F6F6FF;
 }
 
+.gallery .container-gallery {
+    padding: 70px 0 30px;
+}
+
 .gallery-title {
     color: #6E16DE;
     font-size: 44px;
@@ -13,13 +17,15 @@
 }
 
 .gallery .gallery-swiper {
-    padding-top: 84px;
+    padding-top: 30px;
     padding-bottom: 65px;
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .gallery .swiper {
-    overflow: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .gallery .swiper-wrapper {
@@ -31,39 +37,57 @@
     justify-content: center;
     align-items: flex-end;
     transition: all 0.3s ease;
+    width: 201px;
 }
 
 .gallery .swiper-slide img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 249 / 541;
+    width: 201px;
+    height: 433px;
     display: block;
     border-radius: 24px;
     object-fit: cover;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
 .gallery .swiper-slide-active {
+    width: 249px;
     transform: translateY(-54px);
+}
+
+.gallery .swiper-slide-active img {
+    width: 249px;
+    height: 541px;
 }
 
 
 .gallery-controls {
+    position: relative;
     width: 327px;
     height: 44px;
+    margin: 65px auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+}
+
+.gallery-controls .swiper-button-prev,
+.gallery-controls .swiper-button-next {
+    margin: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    cursor: pointer;
+}
+
+.gallery-controls .swiper-button-prev::after,
+.gallery-controls .swiper-button-next::after {
+    content: none;
 }
 
 
 .gallery .swiper-pagination {
-    width: 100%;
-    position: absolute !important;
+    position: static !important;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,24 +112,23 @@
     background: #4F0CC6 !important;
 }
 
-
-/* =========================
-   DESKTOP 1440+
-========================= */
 @media screen and (min-width: 1440px) {
 
     .gallery .gallery-swiper {
         padding-top: 121px;
         max-width: 1440px;
-            /* pick whatever matches your design's intended width */
-            margin: 0 auto;
-            overflow: hidden;
+        /* pick whatever matches your design's intended width */
+        margin: 0 auto;
+        overflow-x: hidden;
+        overflow-y: visible;
     }
-.gallery .swiper-wrapper {
-    overflow: visible;
-    /* keep this so the translateY scale-up on active slide isn't clipped vertically */
-}
-    /* крайні */
+
+    .gallery .swiper-wrapper {
+        overflow-x: hidden;
+        overflow-y: visible;
+        /* clip peek cards at the 1440 boundary, but keep vertical visible so the translateY scale-up on active slide isn't clipped */
+    }
+
     .gallery .swiper-slide {
         width: 229px;
         margin-right: 24px;
@@ -116,8 +139,6 @@
         height: 490px;
     }
 
-
-    /* сусідні */
     .gallery .swiper-slide-prev,
     .gallery .swiper-slide-next {
         width: 302px;
@@ -129,8 +150,6 @@
         height: 650px;
     }
 
-
-    /* центр */
     .gallery .swiper-slide-active {
         width: 374px;
         transform: translateY(-81px);
@@ -141,9 +160,8 @@
         height: 812px;
     }
 
-
-        .gallery .swiper-slide-prev,
-        .gallery .swiper-slide-active {
-            margin-right: 42px;
-        }
+    .gallery .swiper-slide-prev,
+    .gallery .swiper-slide-active {
+        margin-right: 42px;
+    }
 }

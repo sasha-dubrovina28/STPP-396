@@ -21,7 +21,7 @@ const swiper = new Swiper('.gallery-swiper', {
   slidesPerView: 1.5,
 
   spaceBetween: 26,
-
+  
 
   navigation: {
     nextEl: '.gallery .swiper-button-next',
@@ -55,5 +55,8 @@ swiper.on('breakpoint', () => {
   swiper.loopDestroy();
   swiper.loopCreate();
   swiper.slideToLoop(swiper.realIndex, 0, false);
+  swiper.update();
+});
+swiper.on('slideChangeTransitionEnd', () => {
   swiper.update();
 });
