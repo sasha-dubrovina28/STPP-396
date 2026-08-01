@@ -23,7 +23,7 @@
     margin: 0 auto 20px;
     padding: 0 16px;
     color: #6e16de;
-    font-family: 'Sniglet';
+    font-family: var(--title-font-family);
     font-size: 44px;
     font-weight: 400;
     line-height: 1.15;
