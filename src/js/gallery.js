@@ -3,19 +3,31 @@ import { Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 
-const gallery = document.querySelector('.gallery');
+const gallery = document.querySelector('[data-gallery]');
 
 if (gallery) {
-  const swiperElement = gallery.querySelector('.gallery-swiper');
-  const wrapper = swiperElement?.querySelector('.swiper-wrapper');
+  const swiperElement = gallery.querySelector(
+    '[data-gallery-swiper]'
+  );
+  const wrapper = swiperElement?.querySelector(
+    '[data-gallery-wrapper]'
+  );
 
   const slides = wrapper
-    ? Array.from(wrapper.querySelectorAll('.swiper-slide'))
+    ? Array.from(
+        wrapper.querySelectorAll('[data-gallery-slide]')
+      )
     : [];
 
-  const previousButton = gallery.querySelector('.swiper-button-prev');
-  const nextButton = gallery.querySelector('.swiper-button-next');
-  const paginationElement = gallery.querySelector('.swiper-pagination');
+  const previousButton = gallery.querySelector(
+    '[data-gallery-action="previous"]'
+  );
+  const nextButton = gallery.querySelector(
+    '[data-gallery-action="next"]'
+  );
+  const paginationElement = gallery.querySelector(
+    '[data-gallery-pagination]'
+  );
 
   const desktopMedia = window.matchMedia('(min-width: 1440px)');
   const slidesCount = slides.length;
@@ -35,10 +47,6 @@ if (gallery) {
 
   activeIndex = normalizeIndex(activeIndex);
 
-  /* =========================
-     PAGINATION
-  ========================= */
-
   const bullets = [];
 
   if (paginationElement) {
@@ -48,7 +56,8 @@ if (gallery) {
       const bullet = document.createElement('button');
 
       bullet.type = 'button';
-      bullet.className = 'swiper-pagination-bullet';
+      bullet.dataset.galleryBullet = '';
+
       bullet.setAttribute(
         'aria-label',
         `Перейти до слайда ${index + 1}`
@@ -76,10 +85,7 @@ if (gallery) {
     bullets.forEach((bullet, index) => {
       const isActive = index === activeIndex;
 
-      bullet.classList.toggle(
-        'swiper-pagination-bullet-active',
-        isActive
-      );
+      bullet.dataset.galleryActive = String(isActive);
 
       if (isActive) {
         bullet.setAttribute('aria-current', 'true');
@@ -88,10 +94,6 @@ if (gallery) {
       }
     });
   };
-
-  /* =========================
-     DESKTOP
-  ========================= */
 
   const getCircularPosition = slideIndex => {
     let position = slideIndex - activeIndex;
@@ -117,22 +119,9 @@ if (gallery) {
       const isVisible = Math.abs(position) <= 2;
 
       slide.removeAttribute('data-gallery-position');
+      slide.dataset.galleryVisible = String(isVisible);
 
-      slide.classList.remove(
-        'swiper-slide-active',
-        'swiper-slide-prev',
-        'swiper-slide-next',
-        'gallery-slide-hidden'
-      );
-
-      /*
-       * На desktop одночасно показуємо тільки:
-       * -2, -1, 0, 1, 2.
-       *
-       * Усі інші картки приховуються.
-       */
       if (!isVisible) {
-        slide.classList.add('gallery-slide-hidden');
         slide.setAttribute('aria-hidden', 'true');
 
         return;
@@ -140,18 +129,6 @@ if (gallery) {
 
       slide.dataset.galleryPosition = String(position);
       slide.removeAttribute('aria-hidden');
-
-      if (position === 0) {
-        slide.classList.add('swiper-slide-active');
-      }
-
-      if (position === -1) {
-        slide.classList.add('swiper-slide-prev');
-      }
-
-      if (position === 1) {
-        slide.classList.add('swiper-slide-next');
-      }
     });
 
     updatePagination();
@@ -193,7 +170,7 @@ if (gallery) {
   const initializeDesktop = () => {
     destroyMobileSwiper();
 
-    swiperElement.classList.add('is-desktop');
+    swiperElement.dataset.galleryMode = 'desktop';
 
     slides.forEach(slide => {
       slide.removeAttribute('style');
@@ -203,26 +180,16 @@ if (gallery) {
     startDesktopAutoplay();
   };
 
-  /* =========================
-     MOBILE
-  ========================= */
-
   const clearDesktopState = () => {
     stopDesktopAutoplay();
 
-    swiperElement.classList.remove('is-desktop');
+    swiperElement.removeAttribute('data-gallery-mode');
 
     slides.forEach(slide => {
       slide.removeAttribute('data-gallery-position');
+      slide.removeAttribute('data-gallery-visible');
       slide.removeAttribute('aria-hidden');
       slide.removeAttribute('style');
-
-      slide.classList.remove(
-        'gallery-slide-hidden',
-        'swiper-slide-active',
-        'swiper-slide-prev',
-        'swiper-slide-next'
-      );
     });
   };
 
@@ -262,10 +229,6 @@ if (gallery) {
     });
   };
 
-  /* =========================
-     CONTROLS
-  ========================= */
-
   previousButton?.addEventListener('click', () => {
     if (desktopMedia.matches) {
       activeIndex = normalizeIndex(activeIndex - 1);
@@ -291,10 +254,6 @@ if (gallery) {
 
     mobileSwiper?.slideNext();
   });
-
-  /* =========================
-     RESPONSIVE
-  ========================= */
 
   const initializeGallery = () => {
     const newMode = desktopMedia.matches

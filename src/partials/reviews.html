@@ -1,8 +1,8 @@
-<section class="reviews-section" id="reviews">
+<section class="reviews-section" id="reviews" data-reviews>
   <div class="container reviews-container">
     <h2 class="reviews-title">Reviews</h2>
     <div class="reviews-slider-box">
-      <div class="swiper reviews-swiper">
+      <div class="swiper reviews-swiper" data-reviews-swiper>
         <ul class="swiper-wrapper reviews-list">
           <li class="swiper-slide reviews-item">
             <img
@@ -15,8 +15,12 @@
               Love picking my helper character before each run.
             </p>
             <div class="reviews-rating">
-              <span class="reviews-score"> 4.0 </span>
-              <span class="reviews-stars" data-rating="4"> </span>
+              <span class="reviews-score">4.0</span>
+              <span
+                class="reviews-stars"
+                data-reviews-stars
+                data-rating="4"
+              ></span>
             </div>
           </li>
           <li class="swiper-slide reviews-item">
@@ -30,8 +34,12 @@
               Sweet visuals and the boosters feel really powerful.
             </p>
             <div class="reviews-rating">
-              <span class="reviews-score"> 4.0 </span>
-              <span class="reviews-stars" data-rating="4"> </span>
+              <span class="reviews-score">4.0</span>
+              <span
+                class="reviews-stars"
+                data-reviews-stars
+                data-rating="4"
+              ></span>
             </div>
           </li>
           <li class="swiper-slide reviews-item">
@@ -45,8 +53,12 @@
               Joining a team completely changed how I play.
             </p>
             <div class="reviews-rating">
-              <span class="reviews-score"> 5.0 </span>
-              <span class="reviews-stars" data-rating="5"> </span>
+              <span class="reviews-score">5.0</span>
+              <span
+                class="reviews-stars"
+                data-reviews-stars
+                data-rating="5"
+              ></span>
             </div>
           </li>
           <li class="swiper-slide reviews-item">
@@ -60,8 +72,12 @@
               Team events make this way more fun than typical match-3s.
             </p>
             <div class="reviews-rating">
-              <span class="reviews-score"> 5.0 </span>
-              <span class="reviews-stars" data-rating="5"> </span>
+              <span class="reviews-score">5.0</span>
+              <span
+                class="reviews-stars"
+                data-reviews-stars
+                data-rating="5"
+              ></span>
             </div>
           </li>
           <li class="swiper-slide reviews-item">
@@ -75,8 +91,12 @@
               Restoring the town after the storm is so satisfying.
             </p>
             <div class="reviews-rating">
-              <span class="reviews-score"> 5.0 </span>
-              <span class="reviews-stars" data-rating="5"> </span>
+              <span class="reviews-score">5.0</span>
+              <span
+                class="reviews-stars"
+                data-reviews-stars
+                data-rating="5"
+              ></span>
             </div>
           </li>
         </ul>
@@ -84,6 +104,7 @@
       <div class="reviews-controls">
         <button
           class="reviews-btn reviews-btn-prev"
+          data-reviews-action="previous"
           type="button"
           aria-label="Previous review"
         >
@@ -91,9 +112,13 @@
             <use href="./img/sprite.svg#icon-swiper-arrow-left"></use>
           </svg>
         </button>
-        <div class="swiper-pagination reviews-pagination"></div>
+        <div
+          class="swiper-pagination reviews-pagination"
+          data-reviews-pagination
+        ></div>
         <button
           class="reviews-btn reviews-btn-next"
+          data-reviews-action="next"
           type="button"
           aria-label="Next review"
         >
