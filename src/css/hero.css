@@ -64,7 +64,7 @@
   border: 1px solid var(--yellow-sea-300);
   background: #fff;
 }
-.hero-form-image{
+.hero-form-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,13 +88,14 @@
     margin-top: -140px;
     width: 40%;
   }
-  .hero-form-image{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  margin-top: 80px;
-  margin-bottom: -800px;
- width: 763px;
-height: 722px;
-}}
+  .hero-form-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: -800px;
+    width: 763px;
+    height: 722px;
+  }
+}
