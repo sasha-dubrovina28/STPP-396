@@ -6,9 +6,6 @@ section {
   scroll-margin-top: 140px;
 }
 
-/* =========================
-   HEADER
-========================= */
 
 .site-header {
   position: fixed;
@@ -38,9 +35,6 @@ section {
   box-sizing: border-box;
 }
 
-/* =========================
-   LOGO
-========================= */
 
 .logo-wraper {
   display: flex;
@@ -99,9 +93,7 @@ section {
   transform: translateY(1px);
 }
 
-/* =========================
-   HEADER WAVE
-========================= */
+
 
 .header-wave {
   position: absolute;
@@ -122,9 +114,7 @@ fill: rgba(108, 65, 251, 0.9);
 }
 
 
-/* =========================
-   DESKTOP NAVIGATION
-========================= */
+
 
 .desktop-nav {
   display: none;
@@ -156,9 +146,6 @@ fill: rgba(108, 65, 251, 0.9);
   transform: translateY(1px);
 }
 
-/* =========================
-   HEADER PLAY BUTTON
-========================= */
 
 .header-play {
   display: none;
@@ -187,9 +174,7 @@ fill: rgba(108, 65, 251, 0.9);
   filter: brightness(0.98);
 }
 
-/* =========================
-   BURGER BUTTON
-========================= */
+
 
 .burger-btn {
   display: inline-flex;
@@ -226,9 +211,7 @@ fill: rgba(108, 65, 251, 0.9);
   transform: translateY(1px);
 }
 
-/* =========================
-   MOBILE MENU OVERLAY
-========================= */
+
 
 .mobile-menu {
   position: fixed;
@@ -264,9 +247,7 @@ fill: rgba(108, 65, 251, 0.9);
     visibility 0s linear 250ms;
 }
 
-/* =========================
-   MOBILE MENU HEADER + WAVE
-========================= */
+
 
 .mobile-menu-header {
   position: absolute;
@@ -296,9 +277,6 @@ fill: rgba(108, 65, 251, 0.9);
   margin-top: -1px;
 }
 
-/* =========================
-   MOBILE MENU PANEL
-========================= */
 
 .mobile-menu-panel {
   position: relative;
@@ -327,9 +305,7 @@ fill: rgba(108, 65, 251, 0.9);
   transform: translateX(0);
 }
 
-/* =========================
-   MOBILE MENU TOP
-========================= */
+
 
 .mobile-menu-top {
   display: flex;
@@ -372,9 +348,6 @@ fill: rgba(108, 65, 251, 0.9);
   transform: translateY(1px);
 }
 
-/* =========================
-   MOBILE NAVIGATION
-========================= */
 
 .mobile-nav {
   display: grid;
@@ -426,9 +399,7 @@ fill: rgba(108, 65, 251, 0.9);
   color: var(--electric-violet-700);
 }
 
-/* =========================
-   DESKTOP
-========================= */
+
 
 @media screen and (min-width: 1440px) {
   section {
