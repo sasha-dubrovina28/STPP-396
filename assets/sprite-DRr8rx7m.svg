@@ -50,6 +50,35 @@
     fill="currentColor"
   />
 </symbol>
-
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  style="position: absolute; width: 0; height: 0; overflow: hidden"
+>
+  <symbol
+    id="icon-header-wave"
+    viewBox="0 0 1440 156"
+    fill="none"
+  >
+    <path
+      d="M1186 136.224C1269.5 115.024 1298 199.165 1440 124.344V0H0V124.344C48.5 124.344 62 153.411 139 153.411C284 125.383 311.388 116.116 390 124.344C503.5 136.224 515 161.523 644.5 136.224C774 110.924 860.987 111.348 961.5 136.224C1062.01 161.1 1122 152.472 1186 136.224Z"
+      fill="#6C41FB"
+      fill-opacity="0.9"
+    />
+  </symbol>
+  
+  <symbol
+  id="icon-footer-wave"
+  viewBox="0 0 1440 220"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M254 27.8899C170.5 57.787 142 -60.8743 0 44.6433V220H1440V44.6433C1391.5 44.6433 1376.5 -2.48869 1300 4.97737C1167 29.3665 1128.61 56.247 1050 44.6433C936.5 27.8899 925 -7.78874 795.5 27.8899C666 63.5685 579.013 62.9715 478.5 27.8899C377.987 -7.19167 318 4.97473 254 27.8899Z"
+    fill="#6C41FB"
+    fill-opacity="0.9"
+  />
+</symbol>
+</svg>
   </defs>
 </svg>
