@@ -317,3 +317,22 @@
         transition: none;
     }
 }
+
+/*
+ * Footer overlap effect — homepage only.
+ * The footer partial is shared across every page with no per-page
+ * class. #contact is nested inside <main>, not a direct sibling of
+ * <footer> — <main> itself is footer's sibling — so check whether
+ * that <main> contains #contact anywhere inside it. Only true on
+ * the homepage; Terms/Privacy pages are unaffected.
+ */
+main:has(#contact)~.site-footer {
+    margin-top: -70px;
+    background-color: transparent;
+}
+
+@media screen and (min-width: 1440px) {
+    main:has(#contact)~.site-footer {
+        margin-top: -120px;
+    }
+}
