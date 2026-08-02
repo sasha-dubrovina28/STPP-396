@@ -39,10 +39,8 @@ body {
   flex-direction: column;
   min-width: 100vw;
   min-height: 100vh;
-  margin: 0;
- 
+  background-color: #f6f6ff;
 }
-
 main {
   flex-grow: 1;
 }
