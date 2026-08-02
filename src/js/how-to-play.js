@@ -5,14 +5,24 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const howSwiperElement = document.querySelector('.how-swiper');
+const HOW_SWIPER_BREAKPOINT = 1440;
+
+const howSwiperElement = document.querySelector('[data-how-swiper]');
 
 let howSwiper = null;
 
 function initializeHowSwiper() {
-  if (!howSwiperElement) return;
+  if (!howSwiperElement) {
+    return;
+  }
 
-  if (window.innerWidth >= 1440) {
+  const nextButton = document.querySelector('[data-how-swiper-next]');
+  const previousButton = document.querySelector('[data-how-swiper-prev]');
+  const paginationElement = document.querySelector(
+    '[data-how-swiper-pagination]'
+  );
+
+  if (window.innerWidth >= HOW_SWIPER_BREAKPOINT) {
     if (howSwiper) {
       howSwiper.destroy(true, true);
       howSwiper = null;
@@ -21,25 +31,26 @@ function initializeHowSwiper() {
     return;
   }
 
-  if (!howSwiper) {
-    howSwiper = new Swiper(howSwiperElement, {
-      modules: [Navigation, Pagination],
-
-      slidesPerView: 1,
-      spaceBetween: 16,
-      loop: true,
-
-      navigation: {
-        nextEl: '.play-btn-next',
-        prevEl: '.play-btn-prev',
-      },
-
-      pagination: {
-        el: '.play-pagination',
-        clickable: true,
-      },
-    });
+  if (howSwiper) {
+    return;
   }
+
+  howSwiper = new Swiper(howSwiperElement, {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1,
+    spaceBetween: 16,
+    loop: true,
+
+    navigation: {
+      nextEl: nextButton,
+      prevEl: previousButton,
+    },
+
+    pagination: {
+      el: paginationElement,
+      clickable: true,
+    },
+  });
 }
 
 initializeHowSwiper();

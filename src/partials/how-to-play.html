@@ -8,7 +8,7 @@
       alt="How to Play"
       loading="lazy"
     />
-    <div class="swiper how-swiper">
+    <div class="swiper how-swiper" data-how-swiper>
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <h3 class="how-title">Join a Team</h3>
@@ -105,16 +105,19 @@
         class="play-btn play-btn-prev"
         type="button"
         aria-label="Previous play"
+        data-how-swiper-prev
       >
         <svg class="play-btn-icon" width="44" height="44">
           <use href="./img/sprite.svg#icon-swiper-arrow-left"></use>
         </svg>
       </button>
-      <div class="sw-pagination play-pagination"></div>
+      <div class="sw-pagination play-pagination"
+      data-how-swiper-pagination></div>
       <button
         class="play-btn play-btn-next"
         type="button"
         aria-label="Next play"
+        data-how-swiper-next
       >
         <svg class="play-btn-icon" width="44" height="44">
           <use href="./img/sprite.svg#icon-swiper-arrow-right"></use>

@@ -2,7 +2,7 @@
   background: #f7f6ff;
 }
 .about-title {
-  font-family: var(--third-family);
+  font-family: var(--title-font-family);
   font-weight: 400;
   font-size: 44px;
   line-height: 140%;
