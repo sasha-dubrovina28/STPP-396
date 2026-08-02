@@ -19,6 +19,7 @@
   letter-spacing: 0em;
   color: var(--electric-violet-700);
   margin-bottom: 10px;
+  padding: 0px 20px;
 }
 .how-text {
   font-family: var(--font-family);
@@ -60,6 +61,7 @@
 
 .swiper-slide {
   height: auto;
+  padding:  0px 20px;
 }
 .sw-pagination {
   text-align: center;
@@ -78,6 +80,103 @@
   align-items: center;
   gap: 15px;
   margin-top: 20px;
+}
+.how-to-play-section {
+  position: relative;
+  overflow: hidden;
+}
+.how-to-play-section::before {
+    content: '';
+
+    position: absolute;
+    top: 148px;
+    left: 50%;
+    z-index: 0;
+
+    width: 520px;
+    height: 240px;
+
+    background: radial-gradient(ellipse at center,
+            rgba(98, 12, 144, 0.85) 0%,
+            rgba(151, 105, 211, 0.5) 40%,
+            rgba(201, 190, 253, 0.25) 65%,
+            rgba(246, 246, 255, 0) 85%);
+
+    filter: blur(40px);
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+.how-image-wrapper {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 20px;
+}
+.how-image-wrapper::before {
+  content: '';
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 500px;
+  height: 500px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(24, 75, 255, 0) 0%,
+    #174aff 100%
+  );
+
+  filter: blur(200px);
+
+  z-index: 0;
+  pointer-events: none;
+  
+}
+.how-main-image {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+.how-image-wrapper {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+.how-image-wrapper::after {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 450px;
+  height: 450px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 194, 255, 0) 0%,
+    #ff29c3 100%
+  );
+
+  filter: blur(200px);
+
+  z-index: 0;
+  pointer-events: none;
+}
+.how-image-wrapper::before {
+  left: 30%;
+  top: 40%;
+}
+
+.how-image-wrapper::after {
+  left: 70%;
+  top: 70%;
 }
 
 @media screen and (min-width: 1440px) {
