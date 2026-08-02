@@ -63,6 +63,7 @@
     line-height: 1.2;
     font-family: var(--font-family);
 }
+
 .characters-card-text {
     margin: 0;
     max-width: none;
@@ -75,10 +76,9 @@
 
 @media screen and (min-width: 1440px) {
     .characters-section {
-        padding: 250px 0 215px;
-
+        padding: 215px 0;
     }
-    
+
     .characters-title {
         font-size: 48px;
         width: 410px;
@@ -155,5 +155,5 @@
         font-size: 20px;
         line-height: 28px;
     }
-      
+
 }
