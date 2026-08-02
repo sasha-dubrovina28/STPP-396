@@ -113,15 +113,15 @@
     gap: 2px;
 }
 
-.reviews-stars .star-icon {
+.reviews-stars [data-review-star] {
     width: 17px;
     height: 17px;
     flex-shrink: 0;
     color: #FFAA00;
 }
 
-.reviews-stars .star-icon.is-empty {
-    color: #DBDBFE;
+.reviews-stars [data-review-star][data-review-star-state='empty'] {
+    color: #dbdbfe;
 }
 
 .reviews-controls {

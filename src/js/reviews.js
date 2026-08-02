@@ -1,58 +1,105 @@
-import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-import sprite from "../img/sprite.svg";
+import sprite from '../img/sprite.svg';
 
+const createStar = isEmpty => {
+  const star = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'svg'
+  );
 
-function renderStars(rating) {
+  const icon = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'use'
+  );
 
-  const fullStars = Math.round(Number(rating));
+  star.dataset.reviewStar = '';
+  star.dataset.reviewStarState = isEmpty
+    ? 'empty'
+    : 'filled';
 
-  let stars = "";
+  star.setAttribute('width', '17');
+  star.setAttribute('height', '17');
+  star.setAttribute('aria-hidden', 'true');
 
-  for (let i = 0; i < 5; i++) {
+  icon.setAttribute('href', `${sprite}#icon-star`);
 
-    const emptyClass = i >= fullStars ? "is-empty" : "";
+  star.append(icon);
 
-    stars += `
-      <svg class="star-icon ${emptyClass}" width="17" height="17">
-        <use href="${sprite}#icon-star"></use>
-      </svg>
-    `;
+  return star;
+};
+
+const renderStars = element => {
+  const parsedRating = Math.round(
+    Number(element.dataset.rating)
+  );
+
+  const rating = Number.isFinite(parsedRating)
+    ? Math.min(Math.max(parsedRating, 0), 5)
+    : 0;
+
+  const fragment = document.createDocumentFragment();
+
+  for (let index = 0; index < 5; index += 1) {
+    fragment.append(createStar(index >= rating));
   }
-  return stars;
-}
-document.querySelectorAll(".reviews-stars").forEach((item) => {
-  item.innerHTML = renderStars(item.dataset.rating);
-});
 
+  element.replaceChildren(fragment);
+};
+document
+  .querySelectorAll('[data-reviews]')
+  .forEach(reviewsElement => {
+    reviewsElement
+      .querySelectorAll('[data-reviews-stars]')
+      .forEach(renderStars);
 
-new Swiper(".reviews-swiper", {
-  modules: [
-    Navigation,
-    Pagination
-  ],
-  centeredSlides: true,
-  slidesPerView: "auto",
-  spaceBetween: 12,
-  navigation: {
-    nextEl: ".reviews-btn-next",
-    prevEl: ".reviews-btn-prev",
-  },
-  pagination: {
-    el: ".reviews-pagination",
-    clickable: true,
-  },
-  breakpoints: {
+    const swiperElement = reviewsElement.querySelector(
+      '[data-reviews-swiper]'
+    );
 
-    1440: {
-      slidesPerView: 3,
-      spaceBetween: 102,
-      centeredSlides: false
+    if (!swiperElement) {
+      return;
     }
-  }
-});
+
+    const previousButton = reviewsElement.querySelector(
+      '[data-reviews-action="previous"]'
+    );
+
+    const nextButton = reviewsElement.querySelector(
+      '[data-reviews-action="next"]'
+    );
+
+    const paginationElement = reviewsElement.querySelector(
+      '[data-reviews-pagination]'
+    );
+
+    new Swiper(swiperElement, {
+      modules: [Navigation, Pagination],
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 12,
+
+      navigation: {
+        nextEl: nextButton,
+        prevEl: previousButton,
+      },
+
+      pagination: {
+        el: paginationElement,
+        clickable: true,
+      },
+
+      breakpoints: {
+        1440: {
+          slidesPerView: 3,
+          spaceBetween: 102,
+          centeredSlides: false,
+        },
+      },
+    });
+  });

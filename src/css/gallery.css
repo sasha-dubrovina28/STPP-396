@@ -6,6 +6,7 @@
 
   background-color: #f6f6ff;
 }
+
 .gallery,
 .gallery * {
   box-sizing: border-box;
@@ -17,6 +18,7 @@
   margin: 0 auto;
   padding: 8px 0 30px;
 }
+
 .gallery-title {
   width: 100%;
   height: auto;
@@ -29,6 +31,7 @@
   line-height: 1.15;
   text-align: center;
 }
+
 .gallery .gallery-swiper {
   position: relative;
   width: min(100%, 387px);
@@ -55,6 +58,7 @@
   overflow: visible;
   transition: none;
 }
+
 .gallery .swiper-slide img {
   width: calc(100% * 201 / 249);
   height: auto;
@@ -69,6 +73,7 @@
     width 300ms ease,
     height 300ms ease;
 }
+
 .gallery .swiper-slide-active {
   z-index: 3;
   justify-content: center;
@@ -85,6 +90,7 @@
 .gallery .swiper-slide-next {
   z-index: 2;
 }
+
 .gallery .swiper-slide-prev {
   justify-content: flex-end;
 }
@@ -93,10 +99,6 @@
   justify-content: flex-start;
 }
 
-.gallery .swiper-slide-active {
-  z-index: 3;
-  justify-content: center;
-}
 .gallery-controls {
   position: relative;
   z-index: 10;
@@ -124,6 +126,7 @@
   cursor: pointer;
   transform: none;
 }
+
 .gallery-controls .swiper-button-prev::after,
 .gallery-controls .swiper-button-next::after {
   content: none;
@@ -137,6 +140,7 @@
   height: 44px;
   display: block;
 }
+
 .gallery .swiper-pagination {
   position: static !important;
   width: auto;
@@ -145,19 +149,23 @@
   align-items: center;
   gap: 4px;
 }
-.gallery .swiper-pagination-bullet {
+
+.gallery [data-gallery-bullet] {
   width: 12px !important;
   height: 8px !important;
   margin: 0 !important;
+  padding: 0;
+  border: 0;
   border-radius: 20px !important;
   background-color: #c1c0fe !important;
   opacity: 1 !important;
+  cursor: pointer;
   transition:
-    200ms ease,
+    width 200ms ease,
     background-color 200ms ease;
 }
 
-.gallery .swiper-pagination-bullet-active {
+.gallery [data-gallery-bullet][data-gallery-active='true'] {
   width: 24px !important;
   height: 8px !important;
   border-radius: 20px !important;
@@ -171,10 +179,12 @@
     padding-top: 8px;
     padding-bottom: 30px;
   }
+
   .gallery-title {
     margin-bottom: 24px;
     font-size: 44px;
   }
+
   .gallery .gallery-swiper {
     width: 100%;
     max-width: none;
@@ -183,7 +193,7 @@
     overflow: visible !important;
   }
 
-  .gallery .gallery-swiper.is-desktop .swiper-wrapper {
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-wrapper {
     position: relative;
     left: 50%;
     width: 1568px !important;
@@ -196,7 +206,8 @@
     transform: translateX(-50%) !important;
     transition: none !important;
   }
-  .gallery .gallery-swiper.is-desktop .swiper-slide {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide {
     position: relative;
 
     display: none !important;
@@ -210,89 +221,81 @@
     transition: none;
   }
 
-  .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position] {
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position] {
     display: flex !important;
     justify-content: center;
     align-items: center;
   }
-  .gallery .gallery-swiper.is-desktop .gallery-slide-hidden {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-visible='false'] {
     display: none !important;
   }
-  .gallery .gallery-swiper.is-desktop .swiper-slide img {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide img {
     max-width: none;
     display: block;
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 24px;
-    transition:
-      width 300ms ease,
-      height 300ms ease;
+    transition: width 300ms ease, height 300ms ease;
   }
-  .gallery
-    .gallery-swiper.is-desktop
-    .swiper-slide[data-gallery-position='-2'] {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='-2'] {
     order: 1;
     width: 229px !important;
     margin-right: 24px !important;
   }
-  .gallery
-    .gallery-swiper.is-desktop
-    .swiper-slide[data-gallery-position='-2']
-    img {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='-2'] img {
     width: 229px;
     height: 490px;
   }
-  .gallery
-    .gallery-swiper.is-desktop
-    .swiper-slide[data-gallery-position='-1'] {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='-1'] {
     order: 2;
     width: 302px !important;
     margin-right: 42px !important;
   }
-  .gallery
-    .gallery-swiper.is-desktop
-    .swiper-slide[data-gallery-position='-1']
-    img {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='-1'] img {
     width: 302px;
     height: 650px;
   }
-  .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position='0'] {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='0'] {
     order: 3;
     z-index: 3;
     width: 374px !important;
     margin-right: 42px !important;
   }
-  .gallery
-    .gallery-swiper.is-desktop
-    .swiper-slide[data-gallery-position='0']
-    img {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='0'] img {
     width: 374px;
     height: 812px;
   }
-  .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position='1'] {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='1'] {
     order: 4;
     width: 302px !important;
     margin-right: 24px !important;
   }
-  .gallery
-    .gallery-swiper.is-desktop
-    .swiper-slide[data-gallery-position='1']
-    img {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='1'] img {
     width: 302px;
     height: 650px;
   }
-  .gallery .gallery-swiper.is-desktop .swiper-slide[data-gallery-position='2'] {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='2'] {
     order: 5;
     width: 229px !important;
     margin-right: 0 !important;
   }
-  .gallery
-    .gallery-swiper.is-desktop
-    .swiper-slide[data-gallery-position='2']
-    img {
+
+  .gallery .gallery-swiper[data-gallery-mode='desktop'] .swiper-slide[data-gallery-position='2'] img {
     width: 229px;
     height: 490px;
   }
+
   .gallery-controls {
     width: max-content;
     max-width: none;

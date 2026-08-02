@@ -1,40 +1,52 @@
-<section class="gallery" id="gallery">
+<section class="gallery" id="gallery" data-gallery>
   <div class="container container-gallery">
     <h2 class="gallery-title">Gallery</h2>
   </div>
 
-  <div class="gallery-swiper swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
+  <div class="gallery-swiper swiper" data-gallery-swiper>
+    <div class="swiper-wrapper" data-gallery-wrapper>
+      <div class="swiper-slide" data-gallery-slide>
         <img src="./img/gallery/1.jpg" alt="Enjoy funny events" />
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" data-gallery-slide>
         <img src="./img/gallery/2.jpg" alt="Explore new locations" />
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" data-gallery-slide>
         <img src="./img/gallery/3.jpg" alt="Play vibrant levels" />
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" data-gallery-slide>
         <img src="./img/gallery/4.jpg" alt="Win with cute boosters" />
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" data-gallery-slide>
         <img src="./img/gallery/5.jpg" alt="Reveal the hidden story" />
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" data-gallery-slide>
         <img src="./img/gallery/6.jpg" alt="Choose your favorite helper" />
       </div>
     </div>
 
     <div class="gallery-controls">
-      <div class="swiper-button-prev">
+      <div
+        class="swiper-button-prev"
+        data-gallery-action="previous"
+        role="button"
+        tabindex="0"
+        aria-label="Previous gallery slide"
+      >
         <svg class="swiper-icon" width="24" height="24">
           <use href="./img/sprite.svg#icon-swiper-arrow-left"></use>
         </svg>
       </div>
 
-      <div class="swiper-pagination"></div>
+      <div class="swiper-pagination" data-gallery-pagination></div>
 
-      <div class="swiper-button-next">
+      <div
+        class="swiper-button-next"
+        data-gallery-action="next"
+        role="button"
+        tabindex="0"
+        aria-label="Next gallery slide"
+      >
         <svg class="swiper-icon" width="24" height="24">
           <use href="./img/sprite.svg#icon-swiper-arrow-right"></use>
         </svg>
