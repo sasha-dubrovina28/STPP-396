@@ -13,8 +13,8 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/STPP-396/assets/vendor-CZv04xsm.js"></script>
-    <script type="module" crossorigin src="/STPP-396/assets/main-DYNjQ7KB.js"></script>
-    <link rel="stylesheet" crossorigin href="/STPP-396/assets/main-Ez3-bgnQ.css">
+    <script type="module" crossorigin src="/STPP-396/assets/main-C_bhaaev.js"></script>
+    <link rel="stylesheet" crossorigin href="/STPP-396/assets/main-9ZdVbPiu.css">
     <link rel="stylesheet" crossorigin href="/STPP-396/assets/vendor-XYtvLfmp.css">
   </head>
   <body>
@@ -474,10 +474,11 @@
       <section class="reviews-section" id="reviews" data-reviews>
   <div class="container reviews-container">
     <h2 class="reviews-title">Reviews</h2>
+
     <div class="reviews-slider-box">
       <div class="swiper reviews-swiper" data-reviews-swiper>
         <ul class="swiper-wrapper reviews-list">
-          <li class="swiper-slide reviews-item">
+          <li class="swiper-slide reviews-item" data-reviews-item>
             <img
               class="reviews-avatar"
               src="/STPP-396/assets/jason-Mc_P4WAf.jpg"
@@ -493,10 +494,12 @@
                 class="reviews-stars"
                 data-reviews-stars
                 data-rating="4"
+                aria-label="4 out of 5 stars"
               ></span>
             </div>
           </li>
-          <li class="swiper-slide reviews-item">
+
+          <li class="swiper-slide reviews-item" data-reviews-item>
             <img
               class="reviews-avatar"
               src="/STPP-396/assets/Melissa-D67-rMja.jpg"
@@ -512,10 +515,12 @@
                 class="reviews-stars"
                 data-reviews-stars
                 data-rating="4"
+                aria-label="4 out of 5 stars"
               ></span>
             </div>
           </li>
-          <li class="swiper-slide reviews-item">
+
+          <li class="swiper-slide reviews-item" data-reviews-item>
             <img
               class="reviews-avatar"
               src="/STPP-396/assets/puzzle-HdPRu8jv.jpg"
@@ -531,10 +536,12 @@
                 class="reviews-stars"
                 data-reviews-stars
                 data-rating="5"
+                aria-label="5 out of 5 stars"
               ></span>
             </div>
           </li>
-          <li class="swiper-slide reviews-item">
+
+          <li class="swiper-slide reviews-item" data-reviews-item>
             <img
               class="reviews-avatar"
               src="/STPP-396/assets/candy-Lx1G6X47.jpg"
@@ -550,10 +557,12 @@
                 class="reviews-stars"
                 data-reviews-stars
                 data-rating="5"
+                aria-label="5 out of 5 stars"
               ></span>
             </div>
           </li>
-          <li class="swiper-slide reviews-item">
+
+          <li class="swiper-slide reviews-item" data-reviews-item>
             <img
               class="reviews-avatar"
               src="/STPP-396/assets/sweet-p60_D2iV.jpg"
@@ -569,33 +578,50 @@
                 class="reviews-stars"
                 data-reviews-stars
                 data-rating="5"
+                aria-label="5 out of 5 stars"
               ></span>
             </div>
           </li>
         </ul>
       </div>
+
       <div class="reviews-controls">
         <button
-          class="reviews-btn reviews-btn-prev"
-          data-reviews-action="previous"
+          class="reviews-btn"
           type="button"
+          data-reviews-action="previous"
           aria-label="Previous review"
         >
-          <svg class="reviews-btn-icon" width="44" height="44">
+          <svg
+            class="reviews-btn-icon"
+            width="44"
+            height="44"
+            aria-hidden="true"
+            focusable="false"
+          >
             <use href="/STPP-396/assets/sprite-DRr8rx7m.svg#icon-swiper-arrow-left"></use>
           </svg>
         </button>
+
         <div
-          class="swiper-pagination reviews-pagination"
           data-reviews-pagination
+          role="group"
+          aria-label="Choose review slide"
         ></div>
+
         <button
-          class="reviews-btn reviews-btn-next"
-          data-reviews-action="next"
+          class="reviews-btn"
           type="button"
+          data-reviews-action="next"
           aria-label="Next review"
         >
-          <svg class="reviews-btn-icon" width="44" height="44">
+          <svg
+            class="reviews-btn-icon"
+            width="44"
+            height="44"
+            aria-hidden="true"
+            focusable="false"
+          >
             <use href="/STPP-396/assets/sprite-DRr8rx7m.svg#icon-swiper-arrow-right"></use>
           </svg>
         </button>
