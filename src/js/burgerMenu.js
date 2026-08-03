@@ -2,7 +2,7 @@ const openBtnEl = document.querySelector('[data-action="open-menu"]');
 const closeMenuEls = document.querySelectorAll('[data-action="close-menu"]');
 const burgerMenuEl = document.querySelector('[data-menu]');
 const headerEl = document.querySelector('[data-site-header]');
-const isLegalPage = Boolean(document.querySelector('.legal-page'));
+const isLegalPage = Boolean(document.querySelector('[data-legal-page]'));
 
 const setMenuState = state => {
   if (!burgerMenuEl || !openBtnEl) {
