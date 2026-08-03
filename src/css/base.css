@@ -37,7 +37,7 @@
 body {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  min-width: 100vw;
   min-height: 100vh;
   background-color: #f6f6ff;
 }
