@@ -34,15 +34,28 @@
   }
 
 
-body {
-  display: flex;
-  flex-direction: column;
+html {
+  box-sizing: border-box;
   width: 100%;
-  min-width: 0px;
-  min-height: 100vh;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+
   background-color: #f6f6ff;
 }
-main {
-  flex-grow: 1;
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
+body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  background-color: transparent;
+}
