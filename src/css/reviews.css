@@ -63,10 +63,6 @@
     line-height: 22px;
 }
 
-.reviews-swiper .swiper-slide {
-    width: 100%;
-}
-
 .reviews-list {
     display: flex;
 }
@@ -164,7 +160,7 @@
     margin: 0;
 }
 
-.swiper-pagination-bullet {
+[data-reviews-bullet] {
     width: 12px !important;
     height: 8px !important;
     margin: 0 !important;
@@ -174,7 +170,7 @@
     opacity: 1 !important;
 }
 
-.swiper-pagination-bullet-active {
+[data-reviews-bullet][data-reviews-bullet-active='true'] {
     width: 24px !important;
     height: 8px !important;
 
@@ -216,17 +212,37 @@
     position: relative;
     z-index: 1;
 }
-
-.reviews-swiper .swiper-slide {
-    min-height: 287px;
-    width: 302px;
+.reviews-swiper {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow: hidden;
 }
 
+.reviews-swiper .swiper-slide,
+.reviews-item {
+    box-sizing: border-box;
+    width: 302px;
+    height: 287px;
+    min-height: 287px;
+    flex: 0 0 302px;
+}
 @media screen and (min-width: 1440px) {
     .reviews-section {
         overflow: hidden;
     }
-
+    .reviews-swiper {
+        max-width: 1110px;
+        max-width: 1110px;
+        margin-inline: auto;
+    }
+    .reviews-swiper .swiper-slide {
+        width: 302px;
+        min-width: 302px;
+        max-width: 302px;
+        height: 287px;
+        flex: 0 0 302px;
+    }
     .reviews-container {
         max-width: 1440px;
         margin: 0 auto;
@@ -234,9 +250,49 @@
 
     .reviews-item {
         width: 302px;
+        height: 287px;
         min-height: 287px;
+        padding: 24px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0;
     }
-
+    .reviews-avatar {
+        width: 74px;
+        height: 74px;
+        display: block;
+        flex: 0 0 74px;
+        align-self: center;
+        margin: 0 auto 10px;
+        object-fit: cover;
+        border-radius: 50%;
+     }
+    .reviews-name {
+        width: auto;
+        height: 22px;
+        line-height: 22px;
+        flex: 0 0 22px;
+        margin: 0 0 10px;
+    }
+    .reviews-text {
+        width: 254px;
+        height: 84px;
+        min-height: 84px;
+        line-height: 28px;
+        text-align: center;
+        flex: 0 0 84px;
+        margin: 0 0 15px;
+    }
+    .reviews-rating {
+        width: 254px;
+        height: 22px;
+        flex: 0 0 22px;
+        margin: 0;
+    }
+    
     .reviews-controls {
         width: 242px;
         height: 44px;
