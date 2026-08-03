@@ -361,18 +361,15 @@ fill: rgba(108, 65, 251, 0.9);
   width: 100%;
   min-height: 44px;
   padding: 0 12px;
-
   box-sizing: border-box;
-
   border-radius: 10px;
-
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 20px;
   line-height: 1.4;
-
+letter-spacing: 0em;
   color: var(--color-body-text);
-  text-decoration: none;
+
 
   transition:
     background-color 180ms ease,
