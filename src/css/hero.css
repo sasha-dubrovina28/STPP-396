@@ -129,6 +129,36 @@
   clip: rect(0 0 0 0);
   clip-path: inset(100%);
 }
+.play-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  --swiper-pagination-color: var(--electric-violet-700);
+  --swiper-pagination-bullet-inactive-color: #d3cef8;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+}
+
+.play-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin: 0 !important;
+
+  border-radius: 50%;
+  background: #d3cef8;
+  opacity: 1;
+
+  transition: all 250ms ease;
+}
+
+.play-pagination .swiper-pagination-bullet-active {
+  width: 36px;
+  height: 12px;
+
+  border-radius: 999px;
+  background: var(--electric-violet-700) !important;
+}
 @media screen and (min-width: 1440px) {
   .hero {
     min-height: 720px;

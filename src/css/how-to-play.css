@@ -59,13 +59,18 @@
   overflow: hidden;
 }
 
-.swiper-slide {
-box-sizing: border-box;
+.how-swiper .swiper-slide {
+  box-sizing: border-box;
   width: 100%;
   height: auto;
-  padding: 0px 20px;
+  padding: 0 20px;
 }
 .sw-pagination {
+   display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
   text-align: center;
 }
 .play-btn {
@@ -77,11 +82,13 @@ box-sizing: border-box;
   height: 44px;
 }
 .play-controls {
-  display: flex;
-  justify-content: center;
+ display: grid;
+  grid-template-columns: 44px 1fr 44px;
   align-items: center;
-  gap: 15px;
+
+  width: 100%;
   margin-top: 20px;
+  padding: 0 20px;
 }
 .how-to-play-section {
   position: relative;
@@ -180,6 +187,44 @@ box-sizing: border-box;
   left: 70%;
   top: 70%;
 }
+.play-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.play-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 8px;
+  margin: 0 !important;
+
+  border-radius: 200px;
+  background: #c8c4e3;
+  opacity: 1;
+
+  transition: all 0.3s ease;
+}
+
+.play-pagination .swiper-pagination-bullet-active {
+  width: 24px;
+  height: 8px;
+
+  border-radius: 999px;
+  background: var(--electric-violet-700);
+}
+.play-btn-prev {
+  justify-self: start;
+}
+
+.play-pagination {
+  justify-self: center;
+}
+
+.play-btn-next {
+  justify-self: end;
+}
+
 
 @media screen and (min-width: 1440px) {
   .how-cont {
