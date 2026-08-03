@@ -4,10 +4,10 @@
 
   width: 100%;
   height: 128px;
-  margin-top: -70px;
+  margin-top: 0;
 
   overflow: hidden;
-  background-color: transparent;
+  background-color: #f6f6ff;
 }
 
 .site-footer,
@@ -148,14 +148,7 @@
 @media screen and (min-width: 1440px) {
   .site-footer {
     height: 220px;
-
-    /*
-     * Футер перекриває тільки нижні 120px ілюстрації Contact.
-     * Початок хвилі залишається на 828px:
-     * 948px висоти Contact - 120px перекриття.
-     * Низ картки: 267px + 514px = 781px, тому відступ до хвилі — 47px.
-     */
-    margin-top: -120px;
+    margin-top: 0;
   }
 
   .site-footer__container {
